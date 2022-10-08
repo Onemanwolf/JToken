@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Oq6/dDTf5arIG5q9ege40tiHuAHAD7JmaT2ikLieKtDM63rwCO2ucirM6MoLbwp1rOJ21Det0en+VJWqYfsocw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\timot\\source\\repos\\JToken\\src\\JTokenExist.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\timot\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\timot\\.nuget\\packages\\newtonsoft.json.schema\\3.0.14\\newtonsoft.json.schema.3.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
