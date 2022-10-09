@@ -15,10 +15,10 @@ class Program
         var memeberToken = JToken.Parse(memeber);
 
         JToken jToken = JToken.Parse(json);
-        var patintName = GetPatientId(getName, memeber);
+        var patintName = GetToken(getName, memeber);
         Console.WriteLine(patintName);
 
-        JToken? patientId = GetPatientId(jpath, json);
+        JToken? patientId = GetToken(jpath, json);
         //  var value = jToken.Value<object>(); // "b"
         if((string)patientId != ""){
           Console.WriteLine(patientId);
@@ -27,12 +27,9 @@ class Program
             Console.WriteLine("Not found");
         }
 
-
-
-
     }
 
-    private static JToken? GetPatientId(string jpath, string json)
+    private static JToken? GetToken(string jpath, string json)
     {       var jToken = JToken.Parse(json);
             return  jToken.Any() ? jToken.SelectToken(jpath) :  null; // true
 
