@@ -7,11 +7,19 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        var selectNames =@"$.[?(@.Name != null)].Name";
         var jpath = @"$.MemeberId";
         var getName = @"$.Name";
         var json = @"{""MemeberId"":""123""}";
         var memeber = @"{'MemeberId':'123', 'Name':'John'}";
+        var memebers = @"[{'MemeberId':'123', 'Name':'John'},{'MemeberId':'456', 'Name':'Mary'}]";
+        var getMemebers = GetTokens(selectNames, memebers);
+
+        foreach(var item in getMemebers)
+        {
+
+            Console.WriteLine(item);
+        }
         var memeberToken = JToken.Parse(memeber);
 
         JToken jToken = JToken.Parse(json);
@@ -32,6 +40,12 @@ class Program
     private static JToken? GetToken(string jpath, string json)
     {       var jToken = JToken.Parse(json);
             return  jToken.Any() ? jToken.SelectToken(jpath) :  null; // true
+
+    }
+
+    private static IEnumerable<JToken>? GetTokens(string jpath, string json)
+    {       var jToken = JToken.Parse(json);
+            return  jToken.Any() ? jToken.SelectTokens(jpath) :  null; // true
 
     }
 }
