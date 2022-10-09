@@ -20,6 +20,7 @@ class Program
 
             Console.WriteLine(item);
         }
+        
         var memeberToken = JToken.Parse(memeber);
 
         JToken jToken = JToken.Parse(json);
@@ -39,13 +40,13 @@ class Program
 
     private static JToken? GetToken(string jpath, string json)
     {       var jToken = JToken.Parse(json);
-            return  jToken.Any() ? jToken.SelectToken(jpath) :  null; // true
+            return  jToken.Any() ? jToken.SelectToken(jpath) :  null;
 
     }
 
     private static IEnumerable<JToken>? GetTokens(string jpath, string json)
     {       var jToken = JToken.Parse(json);
-            return  jToken.Any() ? jToken.SelectTokens(jpath) :  null; // true
+            return  jToken.Any() ? jToken.SelectTokens(jpath) :  null;
 
     }
 }
