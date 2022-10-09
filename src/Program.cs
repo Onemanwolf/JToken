@@ -9,11 +9,16 @@ class Program
     {
 
         var jpath = @"$.MemeberId";
+        var getName = @"$.Name";
         var json = @"{""MemeberId"":""123""}";
+        var memeber = @"{'MemeberId':'123', 'Name':'John'}";
+        var memeberToken = JToken.Parse(memeber);
 
         JToken jToken = JToken.Parse(json);
+        var patintName = GetPatientId(getName, memeber);
+        Console.WriteLine(patintName);
 
-        JToken? patientId = GetPatientId(jpath, jToken);
+        JToken? patientId = GetPatientId(jpath, json);
         //  var value = jToken.Value<object>(); // "b"
         if((string)patientId != ""){
           Console.WriteLine(patientId);
@@ -24,11 +29,11 @@ class Program
 
 
 
-        
+
     }
 
-    private static JToken? GetPatientId(string jpath, JToken jToken)
-    {
+    private static JToken? GetPatientId(string jpath, string json)
+    {       var jToken = JToken.Parse(json);
             return  jToken.Any() ? jToken.SelectToken(jpath) :  null; // true
 
     }
